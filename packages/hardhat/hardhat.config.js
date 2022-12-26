@@ -56,6 +56,11 @@ module.exports = {
       // notice no mnemonic here? it will just use account 0 of the hardhat node to deploy
       // (you can put in a mnemonic here to set the deployer locally)
     },
+    hardhat: {
+      forking: {
+        url: `https://eth-mainnet.g.alchemy.com/v2/OXAMskxHNO83bh25B8v2PXJwTvrsBCeA`,
+      },
+    },
     rinkeby: {
       url: "https://rinkeby.infura.io/v3/ec6a8acd1d354717acec099ad46a0bab", // <---- YOUR INFURA ID! (or it won't work)
       //    url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXX/eth/rinkeby", // <---- YOUR MORALIS ID! (not limited to infura)

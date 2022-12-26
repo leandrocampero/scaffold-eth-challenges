@@ -478,12 +478,36 @@ function App(props) {
     );
   }
 
+  const depositFromWhale = async () => {
+    const address_to_get = "0x2EAfd40E7f7B6fd04C292bc42D90ed17B6b7b55F";
+    await localProvider.send("hardhat_impersonateAccount", [address_to_get]);
+
+    const signer = await localProvider.getSigner(address_to_get);
+    console.log(signer.provider.getSigner());
+
+    const balanceOfSigner = await signer.getBalance();
+    console.log(ethers.utils.formatEther(balanceOfSigner));
+
+    const transferBalance = parseFloat(ethers.utils.formatEther(balanceOfSigner)) - 0.01;
+    const tx = await signer.sendTransaction({
+      to: readContracts.Staker.address,
+      value: ethers.utils.parseEther(transferBalance.toString()),
+    });
+  };
+
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
       <Header />
       {networkDisplay}
       <BrowserRouter>
+        <Button
+          onClick={() => {
+            depositFromWhale();
+          }}
+        >
+          Deposit from Whale Account
+        </Button>
         <Menu style={{ textAlign: "center" }} selectedKeys={[route]} mode="horizontal">
           <Menu.Item key="/">
             <Link
