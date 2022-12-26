@@ -25,7 +25,7 @@ const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 //
 // Select the network you want to deploy to here:
 //
-const defaultNetwork = "localhost";
+const defaultNetwork = "goerli";
 
 const mainnetGwei = 115;
 
@@ -86,7 +86,7 @@ module.exports = {
       },
     },
     goerli: {
-      url: "https://goerli.infura.io/v3/ec6a8acd1d354717acec099ad46a0bab", // <---- YOUR INFURA ID! (or it won't work)
+      url: "https://eth-goerli.g.alchemy.com/v2/qwmYPSeuBtj3WonF3pKgguFlVYnoQ_-q", // <---- YOUR INFURA ID! (or it won't work)
       //      url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXXXX/eth/goerli", // <---- YOUR MORALIS ID! (not limited to infura)
       accounts: {
         mnemonic: mnemonic(),
@@ -255,7 +255,7 @@ module.exports = {
   },
   etherscan: {
     // Add your api key here
-    apiKey: "DNXJA8RX2Q3VZ4URQIWP7Z68CJXQZSC6AW",
+    apiKey: "C9J4RCQ2Q7JNS3UIWQJ2C7H6BVW6IH6KBY",
   },
 };
 
